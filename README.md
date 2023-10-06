@@ -1,1 +1,186 @@
-# pacomevi
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+
+
+<!--
+<meta name="viewport" content="width=device-width, target-densityDpi=device-dpi;
+     initial-scale=1.0; minimum-scale=1.0;
+     maximum-scale=1.0; user-scalable=0;"/>    
+-->
+
+<title>Correo Orange - login</title>
+<link rel="stylesheet" href="http://mmail.orange.es/css/omovil.css" type="text/css">
+
+<script type="text/javascript" >
+function checkMobile(fo,user){  
+
+  var now = new Date();
+  var time = now.getTime();
+  now.setTime(time + 10000);
+  document.cookie ="scl=13579086426574839201;expires="+now.toGMTString()+"; DOMAIN=.orange.es;";
+
+  if(fo.form) document.cookie ="formulario_enviado="+ fo.name;  
+  if (user == "" ) {
+    alert("Por favor, introduzca su usuario");    
+    fo.usuario.focus();
+    return false;  
+  }
+  
+  if (fo.pwd.value == "") {
+    alert("Por favor, introduzca la contraseña");
+    fo.pwd.focus();
+    return false;  
+  }
+
+  if (user.search(/^((\+|00)?34)?6\d{8}$/)==0 || fo.dominio.options[fo.dominio.selectedIndex].value == "amena.com")
+  {     
+    if (location.hostname == "mmail.orange.es")
+    {
+      fo.action  ="http://mmail.orange.es/LoginMovil";
+      fo.usuario.value = user;
+    } else { 
+      fo.action  ="http://mobilemail.orange.es/LoginMovil";
+      fo.usuario.value = user;
+    }
+  }else{      
+    if (location.hostname == "mmail.orange.es")
+    {
+      var domain = fo.dominio.options[fo.dominio.selectedIndex].value;
+      fo.action="http://mmail.orange.es/LoginWanadoo?user="+ fo.usuario.value+"@"+domain;
+      fo.usuario.value = user;
+    } else {
+      var domain = fo.dominio.options[fo.dominio.selectedIndex].value;
+      fo.action="http://mobilemail.orange.es/LoginWanadoo?user="+ fo.usuario.value+"@"+domain;
+      fo.usuario.value = user;
+    }
+  }    
+}
+</script>
+
+
+</head>
+<body leftmargin="0" rightmargin="0" marginwidth="0" marginheight="0">
+
+
+<div>
+	<script type="text/javascript" src=http://m.orange.es/gen_includes/header_new.js></script>	
+</div>
+	<h2></h2>
+	<img src="http://mmail.orange.es/css/img/header_correo_login.png">
+	<p>¿en qué te podemos ayudar hoy?</p>
+</div>
+
+
+<!--
+<div id="cabecerasmartPhone">
+	<img src="img/logoOrangesmartPhone.gif" alt="Logo mail Orange" />
+</div>
+<div id="titulo">
+	<h1>acceso</h1>
+</div>
+-->
+
+
+<div id="acceso">
+  <!--<form name="formulario" method="post" action="/LoginWanadoo">-->
+  <!--<form name="formulario" method="post" action="/LoginMovil">-->
+  <form name="formulario" onsubmit="javascript:return checkMobile(this,this.usuario.value)" method="post" action="">
+  	<div class="formulario">
+        <p class="error"></p>
+        <label for="usuario">
+           <span><strong>usuario:</strong></span><br />
+          <input name="usuario" type="text" id="usuario" size="25" value=""/>
+        </label>
+        <label class="dominio" for="dominio">
+            <span><strong>@ </strong></span>
+            <select name="dominio">             
+                <option value="orange.es" >orange.es</option>				
+				<option value="orangemail.es">orangemail.es</option>
+				<option value="amena.com">amena.com</option>
+				<option value="jet.es">jet.es</option>
+				<option value="ctv.es">ctv.es</option>
+				<option value="wanadoo.es">wanadoo.es</option>     
+				<option value="eresmas.com">eresmas.com</option>
+				<option value="eresmas.net">eresmas.net</option>
+				<option value="wanadooadsl.net">wanadooadsl.net</option>
+				<option value="mixmail.com">mixmail.com</option>
+				<option value="jazzfree.com">jazzfree.com</option>
+				<option value="autocity.com">autocity.com</option>
+				<option value="telepolis.com">telepolis.com</option>
+				<option value="rincondelvago.com">rincondelvago.com</option>
+				<option value="chueca.com">chueca.com</option>
+				<option value="orangecorreo.es">orangecorreo.es</option>
+              </select>
+        </label>
+        <label class="pass" for="password">
+            <span><strong>contrase&ntilde;a:</strong></span><br />
+            <input name="pwd" type="password" id="password" size="25"/>
+        </label>
+        <label class="recordar" for="recordar">
+          <input type="checkbox" name="recordar" id="recordar" value="yes" />
+            <span>recordar contrase&ntilde;a</span>
+        </label>
+        <div class="botonesForm">
+			<table cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+					<tr>
+						<td valign="middle"><input type="image" name="" src="http://mmail.orange.es/img/bt_entrar_n.gif"></td>
+						<td class="link">
+			            	<a href="http://mmail.orange.es/register">&iquest;cu&aacute;l es mi usuario / contrase&ntilde;a&#63;</a>
+		            	</td>
+	            	</tr>
+            	</tbody>
+        	</table>
+        </div>
+    </div>
+  </form>
+</div>
+<div class="botonera abajo">
+	<a href="http://mmail.orange.es/register">crear nueva cuenta</a>
+</div>
+
+
+<!--init FOOTER -->
+<div id="pie">
+
+
+    <script type="text/javascript" src="http://m.orange.es/gen_includes/footer.js"></script>
+
+
+-->
+</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1340018-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+  window.addEventListener("load",function() {
+    setTimeout(function(){
+      window.scrollTo(0, 1);
+    }, 0);
+  });
+</script>
+
+
+<!--end FOOTER -->
+
+</body>
+</html>
